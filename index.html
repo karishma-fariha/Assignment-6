@@ -49,48 +49,70 @@
 
     </header>
     <!-- banner section -->
-   <section>
-  <div class="flex flex-col lg:flex-row justify-center items-center bg-[#cff0dc] px-4 py-8 lg:py-16">
-    
-    <!-- Left Image -->
-    <div class=" w-1/3 mb-6 lg:mb-0">
-      <img class="mx-auto" src="./assets/hero-leaf1.png" alt="">
-    </div>
+    <section>
+        <div class="flex flex-col lg:flex-row justify-center items-center bg-[#cff0dc] px-4 py-8 lg:py-16">
 
-    <!-- Text Content -->
-    <div class="lg:text-center text-left lg:px-8 mb-6 lg:mb-0">
-      <h1 class="text-3xl lg:text-5xl font-bold mb-3 whitespace-nowrap">Plant a Tree, Grow a Future</h1>
-      <p class="text-[#1f2937] mb-4">Join our mission to plant 1 million trees and make the Earth greener for future generations.</p>
-      <a class="btn rounded-4xl bg-[#FACC15] text-[#15803D] border-none px-6 py-2 inline-block">Get Involved</a>
-    </div>
+            <!-- Left Image -->
+            <div class=" w-1/3 mb-6 lg:mb-0">
+                <img class="mx-auto" src="./assets/hero-leaf1.png" alt="">
+            </div>
 
-    <!-- Right Image -->
-    <div class="w-1/3">
-      <img class="mx-auto" src="./assets/hero-leaf2.png" alt="">
-    </div>
+            <!-- Text Content -->
+            <div class="lg:text-center text-left lg:px-8 mb-6 lg:mb-0">
+                <h1 class="text-3xl lg:text-5xl font-bold mb-3 whitespace-nowrap">Plant a Tree, Grow a Future</h1>
+                <p class="text-[#1f2937] mb-4">Join our mission to plant 1 million trees and make the Earth greener for
+                    future generations.</p>
+                <a class="btn rounded-4xl bg-[#FACC15] text-[#15803D] border-none px-6 py-2 inline-block">Get
+                    Involved</a>
+            </div>
 
-  </div>
-</section>
-<!-- choose your trees section -->
- <section class="bg-[#DCFCE7] px-32 py-28">
-    <h1 class="text-center font-semibold text-4xl mb-10">Choose Your Trees</h1>
-    <div class="flex justify-between">
-        <div id="tree-categories" class="w-60"></div>
-        <div id="tree-container" class="p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-auto"></div>
-        <div id="" class="cart bg-white min-h-[400px] min-w-[13rem] rounded-xl">
-          <h2 class="text-xl font-semibold p-3">Your Cart</h2>
-          <div id="cartItems" class="p-3 space-y-4">
-            
-          </div>
-          
-      
+            <!-- Right Image -->
+            <div class="w-1/3">
+                <img class="mx-auto" src="./assets/hero-leaf2.png" alt="">
+            </div>
+
         </div>
+    </section>
+    <!-- choose your trees section -->
+    <section class="bg-[#DCFCE7] px-32 py-28 ">
+        <h1 class="text-center font-semibold text-4xl mb-10">Choose Your Trees</h1>
+        <div class="flex flex-col justify-between lg:flex-row">
+            <div id="tree-categories" class=" lex flex-row md:flex-col items-center justify-center flex-wrap space-y-2">
+            </div>
+            <div id="tree-container" class="p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-auto"></div>
+            <div id="" class=" bg-white h-[500px] overflow-y-auto min-w-[13rem] rounded-xl">
+                <h2 class="text-xl font-semibold p-3">Your Cart</h2>
+                <div id="cartItems" class="p-3 space-y-4">
 
-    </div>
- </section>
+                </div>
 
-<!--Campaign section -->
-<!-- <section class="">
+
+            </div>
+
+
+            <!-- Open the modal using ID.showModal() method -->
+            <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+            <dialog id="tree" class="modal modal-bottom sm:modal-middle">
+                <div class="modal-box">
+                    
+                    <div id="details-container " class="space-y-5">
+                        
+                    </div>
+
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <!-- if there is a button in form, it will close the modal -->
+                            <button class="btn">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
+
+        </div>
+    </section>
+
+    <!--Campaign section -->
+    <!-- <section class="">
     <div class=" border-2 border-gray-500 ">
         <h1 class="text-center text-3xl font-semibold text-[#1f2937]">About the Campaign</h1>
     <div class="flex items-center justify-center gap-5 border-2 border-green-500">
@@ -107,7 +129,7 @@
     </div>
 </section> -->
 
-<script src="./script/index.js"></script>
+    <script src="./script/index.js"></script>
 </body>
 
 </html>
