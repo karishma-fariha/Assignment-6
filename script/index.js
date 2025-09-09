@@ -2,8 +2,7 @@ const loadCategories = () => {
     const url = "https://openapi.programming-hero.com/api/categories";
     fetch(url)
         .then((res) => res.json())
-        .then((json) => displayCategories(json.categories
-        ));
+        .then((json) => displayCategories(json.categories));
 
 };
 
@@ -24,19 +23,26 @@ for(let tree of trees){
 
 card.innerHTML = ` <div class="bg-white rounded-xl justify-center py-8 px-4">
     <img class="max-w-80 max-h-80 mb-2 rounded-md mx-auto" src="${tree.image}" alt="">
-    <h2> ${tree.name} </h2>
-    <p>${tree.description}</p>
+    <h2 class="text-xl font-semibold my-3"> ${tree.name} </h2>
+    <p class="text-xs font-normal mb-3">${tree.description}</p>
     <div class="flex justify-between items-center">
-        <button class="btn bg-[#cff0dc]">Fruit Tree</button>
-        <h3>৳500</h3>
+        <button class="mb-3 btn bg-[#cff0dc] text-xs font-normal text-[#15803D]">${tree.category}</button>
+        <h3 class =" mb-3 text-xs font-semibold">৳${tree.price}</h3>
     </div>
-    <button class="btn bg-[#15803D] text-white rounded-2xl w-full">Add to Cart</button>
+    <button onclick="loadCart(${tree.price},'${tree.name}')" class="btn bg-[#15803D] text-white rounded-2xl w-full text-xs font-medium">Add to Cart</button>
  </div>
     
 `;
 
  treeContainer.append(card); 
 }
+}
+
+const loadingAllTrees =()=>{
+    const url ="https://openapi.programming-hero.com/api/plants";
+    fetch(url)
+    .then((res) => res.json())
+    .then((json) => )
 }
 
 const displayCategories = (trees) => {
@@ -50,5 +56,53 @@ const displayCategories = (trees) => {
     }
 
 };
+
+
+let cartItems = []
+
+const loadCart = (price, name) => {
+  let items = cartItems.find(item => item.name === name)
+  if (items) {
+    items.count++
+  } else {
+    cartItems.push({ name, price, count: 1 })
+  }
+  CartBuilt()
+}
+
+const CartBuilding = () => {
+  const cartElement = document.getElementById("cartItems")
+  cartElement.innerHTML = ""
+
+  let total = 0
+
+  cartItems.forEach(item => {
+    total += item.price * item.count
+
+    const addItems = document.createElement("div")
+    addItems.innerHTML = `
+      <div class="flex items-center justify-between gap-14 bg-[#DCFCE795] p-5 rounded-xl">
+        <div>
+          <h2 class="font-bold">${item.name}</h2>
+          <p class="text-gray-400">৳${item.price} x ${item.count}</p>
+        </div>
+        <div>
+          <i class="fa-solid fa-xmark text-gray-400 cursor-pointer"
+             onclick="removeFromCart('${item.name}')"></i>
+        </div>
+      </div>`
+    cartElement.append(addItems)
+  })
+
+  const totalDiv = document.createElement("div")
+  totalDiv.className = "mt-4 font-bold text-xl"
+  totalDiv.innerText = `Total: ৳${total}`
+  cartElement.append(totalDiv)
+}
+
+const removeFromCart = (name) => {
+  cartItems = cartItems.filter(item => item.name !== name)
+  CartBuilding()
+}
 
 loadCategories();
